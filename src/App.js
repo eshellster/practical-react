@@ -1,23 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
-import Header from "./components/Header";
-import Footer, { FooterAdd } from "./components/Footer";
+import ImageSlider from "./components/ImageSlider";
+import Counter from "./components/Counter";
 
 function App() {
-  const add = (a, b) => {
-    return a + b;
-  };
+  const [visible, setVisible] = useState(true);
   return (
     <div className="App">
-      <Header
-        title={"새로운 시작"}
-        number={5}
-        myObj={{ a: 5, b: 6 }}
-        myArray={[100, 31, 200]}
-        myFunc={add}
-      />
-      <Footer text="I am cool" />
-      <FooterAdd text="FooterAdd" />
+      <div>{visible ? <ImageSlider /> : <Counter initialCount={0} />}</div>
+      <button onClick={() => setVisible(!visible)}>
+        {visible ? "hide" : "show"}
+      </button>
     </div>
   );
 }
