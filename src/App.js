@@ -1,24 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import Header from "./components/Header";
+import Footer, { FooterAdd } from "./components/Footer";
 
 function App() {
+  const add = (a, b) => {
+    return a + b;
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header
+        title={"새로운 시작"}
+        number={5}
+        myObj={{ a: 5, b: 6 }}
+        myArray={[100, 31, 200]}
+        myFunc={add}
+      />
+      <Footer text="I am cool" />
+      <FooterAdd text="FooterAdd" />
     </div>
   );
 }
