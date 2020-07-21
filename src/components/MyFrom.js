@@ -8,11 +8,13 @@ const useInput = (defaultValue) => {
 };
 
 const useCheck = () => {
-  const [state, setState] = useState(false);
+  const type = "checkbox";
+  const [checked, setChecked] = useState(false);
   const onChange = (e) => {
-    setState(e.target.value);
+    setChecked(e.target.checked);
+    console.log(checked);
   };
-  return { state, onChange };
+  return { type, checked, onChange };
 };
 
 const MyFrom = () => {
@@ -35,6 +37,7 @@ const MyFrom = () => {
       <input {...email} />
       <input type="checkbox" checked={remember} onChange={handleCheck} />
       {remember ? "true" : "false"}
+      <input {...check} />
     </div>
   );
 };
