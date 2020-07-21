@@ -32,6 +32,16 @@ const MyFrom = () => {
   const check = useCheck();
   const select = useSelect();
 
+  const handleSummit = () => {
+    console.log(
+      name.value,
+      password.value,
+      email.value,
+      check.checked,
+      select.value
+    );
+  };
+
   return (
     <div className="App-contain">
       <input {...name} />
@@ -48,6 +58,7 @@ const MyFrom = () => {
           <option>Mrs.</option>
         </select>
       </div>
+      <button onClick={handleSummit}>summit</button>
     </div>
   );
 };
