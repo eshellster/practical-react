@@ -8,7 +8,14 @@ function App() {
   return (
     <div className="App">
       <div className="App-header">
-        <div>{visible ? <ImageSlider /> : <Counter initialCount={0} />}</div>
+        <div>
+          <div className={visible ? "hidden" : "visble"}>
+            <Counter initialCount={0} />
+          </div>
+          <div className={visible ? "visble" : "hidden"}>
+            <ImageSlider />
+          </div>
+        </div>
         <button onClick={() => setVisible(!visible)}>
           {visible ? "hide" : "show"}
         </button>
