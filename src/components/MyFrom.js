@@ -32,7 +32,8 @@ const MyFrom = () => {
   const check = useCheck();
   const select = useSelect();
 
-  const handleSummit = () => {
+  const handleSummit = (e) => {
+    e.preventDefault();
     console.log(
       name.value,
       password.value,
@@ -43,7 +44,7 @@ const MyFrom = () => {
   };
 
   return (
-    <div className="App-contain">
+    <form onSubmit={handleSummit} className="App-contain">
       <input {...name} />
       <input {...password} />
       <div>
@@ -58,8 +59,8 @@ const MyFrom = () => {
           <option>Mrs.</option>
         </select>
       </div>
-      <button onClick={handleSummit}>summit</button>
-    </div>
+      <button type="submit">summit</button>
+    </form>
   );
 };
 
