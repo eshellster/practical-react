@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 const useInput = (defaultValue) => {
   const [value, setValue] = useState(defaultValue);
   const onChange = (e) => {
@@ -17,27 +17,37 @@ const useCheck = () => {
   return { type, checked, onChange };
 };
 
+const useSelect = () => {
+  const [value, setValue] = useState("");
+  const onChange = (e) => {
+    setValue(e.target.value);
+  };
+  return { value, onChange };
+};
+
 const MyFrom = () => {
   const name = useInput("");
   const password = useInput("");
   const email = useInput("");
   const check = useCheck();
-
-  const [remember, setRemember] = useState(false);
-
-  const handleCheck = (e) => {
-    setRemember(e.target.checked);
-    console.log(e.target.checked);
-  };
+  const select = useSelect();
 
   return (
     <div className="App-contain">
       <input {...name} />
       <input {...password} />
-      <input {...email} />
-      <input type="checkbox" checked={remember} onChange={handleCheck} />
-      {remember ? "true" : "false"}
-      <input {...check} />
+      <div>
+        <input {...email} />
+        <input {...check} />
+      </div>
+      <div>
+        <select {...select}>
+          <option>Mr.</option>
+          <option>Miss.</option>
+          <option>Ms.</option>
+          <option>Mrs.</option>
+        </select>
+      </div>
     </div>
   );
 };
