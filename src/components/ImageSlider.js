@@ -21,7 +21,7 @@ const ImageSlider = () => {
     setIdx(idx + 1);
   };
   return (
-    <div className="App-contain">
+    <div>
       <button onClick={handlePrevious}>previous</button>
       <img
         src={images[idx % images.length]}

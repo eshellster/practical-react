@@ -7,10 +7,12 @@ function App() {
   const [visible, setVisible] = useState(true);
   return (
     <div className="App">
-      <div>{visible ? <ImageSlider /> : <Counter initialCount={0} />}</div>
-      <button onClick={() => setVisible(!visible)}>
-        {visible ? "hide" : "show"}
-      </button>
+      <div className="App-header">
+        <div>{visible ? <ImageSlider /> : <Counter initialCount={0} />}</div>
+        <button onClick={() => setVisible(!visible)}>
+          {visible ? "hide" : "show"}
+        </button>
+      </div>
     </div>
   );
 }

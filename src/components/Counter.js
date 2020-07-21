@@ -15,7 +15,7 @@ const Counter = ({ initialCount }) => {
     setCount(count - 1);
   };
   return (
-    <div className="App-contain">
+    <div>
       <button onClick={increment}> + </button>
       <div>count: {count}</div>
       <button onClick={decrement}> - </button>
