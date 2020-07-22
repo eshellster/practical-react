@@ -1,11 +1,11 @@
 import React from "react";
 import "./App.css";
-import MyFrom from "./components/MyFrom";
+import ValidateForm from "./components/ValidateForm";
 
 function App() {
   return (
     <div className="App">
-      <MyFrom />
+      <ValidateForm />
     </div>
   );
 }
