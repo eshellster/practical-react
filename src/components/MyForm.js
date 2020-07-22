@@ -25,7 +25,7 @@ const useSelect = () => {
   return { value, onChange };
 };
 
-const MyFrom = () => {
+const MyForm = () => {
   const name = useInput("");
   const password = useInput("");
   const email = useInput("");
@@ -64,4 +64,4 @@ const MyFrom = () => {
   );
 };
 
-export default MyFrom;
+export default MyForm;

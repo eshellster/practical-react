@@ -1,11 +1,11 @@
 import React from "react";
 import "./App.css";
-import ValidateForm from "./components/ValidateForm";
+import FetchRandomUser from "./components/FetchRandomUser";
 
 function App() {
   return (
     <div className="App">
-      <ValidateForm />
+      <FetchRandomUser />
     </div>
   );
 }
