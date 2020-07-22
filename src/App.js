@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
-import FetchRandomUser from "./components/FetchRandomUser";
+import Counter, { Counter2 } from "./components/Counter";
 
 function App() {
+  const [count, setCount] = useState(0);
+
+  const increment = () => {
+    setCount(count + 1);
+  };
+
+  const decrement = () => {
+    setCount(count - 1);
+  };
   return (
-    <div className="App">
-      <FetchRandomUser />
+    <div className="App-header">
+      <Counter count={count} increment={increment} decrement={decrement} />
+      <Counter2 count={count} increment={increment} decrement={decrement} />
     </div>
   );
 }

@@ -1,19 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 
-const Counter = ({ initialCount }) => {
-  const [count, setCount] = useState(initialCount);
+// props로 전달 받기
 
-  //   function handleButtonClick() {
-  //     setCount(count + 1);
-  //   }
+const Counter = (props) => {
+  return (
+    <div>
+      <button onClick={props.increment}> + </button>
+      <div>count: {props.count}</div>
+      <button onClick={props.decrement}> - </button>
+    </div>
+  );
+};
 
-  const increment = () => {
-    setCount(count + 1);
-  };
+// 직접 전달받기
 
-  const decrement = () => {
-    setCount(count - 1);
-  };
+export const Counter2 = ({ count, increment, decrement }) => {
   return (
     <div>
       <button onClick={increment}> + </button>
