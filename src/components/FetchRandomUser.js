@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 
 const FetchRandomUser = () => {
-  const [people, setPeople] = useState({ loading: true });
+  const [loading, setLoading] = useState(true);
+  const [people, setPeople] = useState([]);
 
   const Fetch = async () => {
-    const url = "https://api.randomuser.me/";
+    const url = "https://api.randomuser.me/?results=5";
     const response = await fetch(url);
     const data = await response.json();
-    setPeople({ loading: false, person: data.results[0] });
-    console.log(data);
+    setLoading(false);
+    setPeople(data.results);
+    console.log(data.results);
   };
 
   useEffect(() => {
@@ -16,16 +18,16 @@ const FetchRandomUser = () => {
     return () => {};
   }, []);
 
+  const peopleJSX = people.map((person, idx) => (
+    <div key={`some-person-${idx}`}>
+      <img src={person.picture.large} alt="" />
+      <div>{`${person.name.first} ${person.name.last}`}</div>
+    </div>
+  ));
+
   return (
     <div className="App-contain">
-      {people.loading ? (
-        "loading..."
-      ) : (
-        <div>
-          <img src={people.person.picture.large} alt="" />
-          <div>{`${people.person.name.first} ${people.person.name.last}`}</div>
-        </div>
-      )}
+      {loading ? "loading..." : <div>{peopleJSX}</div>}
     </div>
   );
 };
