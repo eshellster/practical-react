@@ -17,6 +17,7 @@ const TodoForm = ({ onSubmit }) => {
     onSubmit({ ...todo });
     setTodo({ text: "" });
   };
+
   return (
     <form onSubmit={handleSubmit}>
       <input

@@ -51,6 +51,13 @@
   color: white;
 }
 
+.todo-completed {
+  text-decoration: line-through;
+  color: gray;
+}
+.todo-uncomplete {
+}
+
 .row {
   display: flex;
   flex-direction: row;
