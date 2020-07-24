@@ -47,7 +47,6 @@ const TodoList = () => {
         <button onClick={() => setTodoToShow("all")}>all</button>
         <button onClick={() => setTodoToShow("active")}>active</button>
         <button onClick={() => setTodoToShow("complete")}>complete</button>
-        <button onClick={removeAllTodoThatAreComplete}>Delete Completed</button>
       </div>
       <div>todos left: {todos.filter((todo) => !todo.complete).length}</div>
       <TodoForm onSubmit={addTodo} />
@@ -63,6 +62,9 @@ const TodoList = () => {
           handleDeleteTodo={() => handleDeleteTodo(todo.id)}
         />
       ))}
+      {todos.filter((todo) => todo.complete).length ? (
+        <button onClick={removeAllTodoThatAreComplete}>Delete Completed</button>
+      ) : null}
     </div>
   );
 };
