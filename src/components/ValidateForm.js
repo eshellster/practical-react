@@ -57,7 +57,7 @@ const MyFrom = () => {
     return !error;
   };
 
-  const handleSummit = (e) => {
+  const handlesubmit = (e) => {
     e.preventDefault();
     const isValid = validate();
     if (isValid) {
@@ -72,7 +72,7 @@ const MyFrom = () => {
   };
 
   return (
-    <form onSubmit={handleSummit} className="App-contain">
+    <form onSubmit={handlesubmit} className="App-contain">
       <input placeholder="name" {...name} />
       {nameError.pass ? null : <div>{nameError.message}</div>}
       <input placeholder="password" type="password" {...password} />
@@ -92,7 +92,7 @@ const MyFrom = () => {
           <option>Mrs.</option>
         </select>
       </div>
-      <button type="submit">summit</button>
+      <button type="submit">submit</button>
     </form>
   );
 };

@@ -32,7 +32,7 @@ const MyForm = () => {
   const check = useCheck();
   const select = useSelect();
 
-  const handleSummit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     console.log(
       name.value,
@@ -44,7 +44,7 @@ const MyForm = () => {
   };
 
   return (
-    <form onSubmit={handleSummit} className="App-contain">
+    <form onSubmit={handleSubmit} className="App-contain">
       <input {...name} />
       <input {...password} />
       <div>
@@ -59,7 +59,7 @@ const MyForm = () => {
           <option>Mrs.</option>
         </select>
       </div>
-      <button type="submit">summit</button>
+      <button type="submit">submit</button>
     </form>
   );
 };
