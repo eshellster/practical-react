@@ -52,10 +52,12 @@
 }
 
 .todo-completed {
+  cursor: pointer;
   text-decoration: line-through;
   color: gray;
 }
 .todo-uncomplete {
+  cursor: pointer;
 }
 
 .row {

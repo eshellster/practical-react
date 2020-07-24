@@ -7,7 +7,7 @@ const TodoList = () => {
 
   const addTodo = (todo) => {
     setTodos([todo, ...todos]);
-    console.log(todos);
+    // console.log(todos);
   };
 
   const toggleComplete = (id) => {
@@ -20,10 +20,11 @@ const TodoList = () => {
         }
       })
     );
-    console.log("todos", todos);
+    // console.log("todos", todos);
   };
   return (
     <div>
+      <div>todos left: {todos.filter((todo) => !todo.complete).length}</div>
       <TodoForm onSubmit={addTodo} />
       {/* {JSON.stringify(todos)} */}
       {todos.map((todo) => (
