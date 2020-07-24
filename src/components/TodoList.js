@@ -36,14 +36,14 @@ const TodoList = () => {
 
   return (
     <div>
-      <div>todos left: {todos.filter((todo) => !todo.complete).length}</div>
-      <TodoForm onSubmit={addTodo} />
-      {/* {JSON.stringify(todos)} */}
       <div>
         <button onClick={() => setTodoToShow("all")}>all</button>
         <button onClick={() => setTodoToShow("active")}>active</button>
         <button onClick={() => setTodoToShow("complete")}>complete</button>
       </div>
+      <div>todos left: {todos.filter((todo) => !todo.complete).length}</div>
+      <TodoForm onSubmit={addTodo} />
+      {/* {JSON.stringify(todos)} */}
 
       {todoList.map((todo) => (
         <Todo

@@ -14,8 +14,10 @@ const TodoForm = ({ onSubmit }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit({ ...todo });
-    setTodo({ text: "" });
+    if (todo.text.length > 0) {
+      onSubmit({ ...todo });
+      setTodo({ text: "" });
+    }
   };
 
   return (
