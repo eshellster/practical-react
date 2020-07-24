@@ -14,7 +14,9 @@ const TodoList = () => {
   const handleDeleteTodo = (id) => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
-  const handleRemoveTodo = (id) => {};
+  const removeAllTodoThatAreComplete = () => {
+    setTodos(todos.filter((todo) => !todo.complete));
+  };
 
   const toggleComplete = (id) => {
     setTodos(
@@ -45,6 +47,7 @@ const TodoList = () => {
         <button onClick={() => setTodoToShow("all")}>all</button>
         <button onClick={() => setTodoToShow("active")}>active</button>
         <button onClick={() => setTodoToShow("complete")}>complete</button>
+        <button onClick={removeAllTodoThatAreComplete}>Delete Completed</button>
       </div>
       <div>todos left: {todos.filter((todo) => !todo.complete).length}</div>
       <TodoForm onSubmit={addTodo} />
