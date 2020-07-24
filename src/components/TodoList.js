@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TodoForm from "./TodoForm";
 import Todo from "./Todo";
 
 const TodoList = () => {
   const [todos, setTodos] = useState([]);
   const [todoToShow, setTodoToShow] = useState("all");
+  const [toggleAllComplete, setToggleAllComplete] = useState(true);
 
   const addTodo = (todo) => {
     setTodos([todo, ...todos]);
-    // console.log(todos);
+    console.log(todos);
   };
 
   const handleDeleteTodo = (id) => {
@@ -47,6 +48,19 @@ const TodoList = () => {
         <button onClick={() => setTodoToShow("all")}>all</button>
         <button onClick={() => setTodoToShow("active")}>active</button>
         <button onClick={() => setTodoToShow("complete")}>complete</button>
+        <button
+          onClick={() => {
+            setTodos(
+              todos.map((todo) => ({
+                ...todo,
+                complete: toggleAllComplete,
+              }))
+            );
+            setToggleAllComplete(!toggleAllComplete);
+          }}
+        >
+          toggle all complete:{` ${toggleAllComplete}`}
+        </button>
       </div>
       <div>todos left: {todos.filter((todo) => !todo.complete).length}</div>
       <TodoForm onSubmit={addTodo} />
