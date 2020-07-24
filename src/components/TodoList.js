@@ -11,6 +11,11 @@ const TodoList = () => {
     // console.log(todos);
   };
 
+  const handleDeleteTodo = (id) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
+  const handleRemoveTodo = (id) => {};
+
   const toggleComplete = (id) => {
     setTodos(
       todos.map((todo) => {
@@ -52,6 +57,7 @@ const TodoList = () => {
           text={todo.text}
           id={todo.id}
           complete={todo.complete}
+          handleDeleteTodo={() => handleDeleteTodo(todo.id)}
         />
       ))}
     </div>
