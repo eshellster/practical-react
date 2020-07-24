@@ -4,6 +4,7 @@ import Todo from "./Todo";
 
 const TodoList = () => {
   const [todos, setTodos] = useState([]);
+  const [todoToShow, setTodoToShow] = useState("all");
 
   const addTodo = (todo) => {
     setTodos([todo, ...todos]);
@@ -22,12 +23,29 @@ const TodoList = () => {
     );
     // console.log("todos", todos);
   };
+
+  let todoList = [];
+
+  if (todoToShow === "all") {
+    todoList = todos;
+  } else if (todoToShow === "active") {
+    todoList = todos.filter((todo) => !todo.complete);
+  } else if (todoToShow === "complete") {
+    todoList = todos.filter((todo) => todo.complete);
+  }
+
   return (
     <div>
       <div>todos left: {todos.filter((todo) => !todo.complete).length}</div>
       <TodoForm onSubmit={addTodo} />
       {/* {JSON.stringify(todos)} */}
-      {todos.map((todo) => (
+      <div>
+        <button onClick={() => setTodoToShow("all")}>all</button>
+        <button onClick={() => setTodoToShow("active")}>active</button>
+        <button onClick={() => setTodoToShow("complete")}>complete</button>
+      </div>
+
+      {todoList.map((todo) => (
         <Todo
           key={todo.id}
           toggleComplete={() => toggleComplete(todo.id)}
