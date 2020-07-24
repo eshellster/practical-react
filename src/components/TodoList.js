@@ -62,7 +62,9 @@ const TodoList = () => {
           handleDeleteTodo={() => handleDeleteTodo(todo.id)}
         />
       ))}
-      {todos.filter((todo) => todo.complete).length ? (
+      {/* some는 인자중에 하나만 값을 만족하면 true를 반환한다.
+      filter는 모든 요소를 다 확인한다. 따라서 불피요한 연산이 가중됨  */}
+      {todos.some((todo) => todo.complete) ? (
         <button onClick={removeAllTodoThatAreComplete}>Delete Completed</button>
       ) : null}
     </div>
